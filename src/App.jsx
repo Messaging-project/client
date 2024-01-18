@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
+import "./app.css";
 
 function App() {
   const [room, setRoom] = useState("");
@@ -11,7 +12,7 @@ function App() {
 
   const joinRoom = () => {
     if (room) {
-      socket.emit("join_room",room);
+      socket.emit("join_room", room);
     }
   };
 
@@ -26,21 +27,27 @@ function App() {
     });
   }, [socket]);
   return (
-    <div>
-      <input
-        placeholder="Room Number..."
-        onChange={(e) => setRoom(e.target.value)}
-      />
-      <button onClick={joinRoom}>Join Room</button>
+    <div className="container">
+      <div className="messageBody">
+        <span>test</span>
+      </div>
 
-      <input
-        placeholder="message"
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button onClick={sendMessage}>Send Message</button>
+      <div className="inputBody">
+        {/* <input
+          placeholder="Room Number..."
+          onChange={(e) => setRoom(e.target.value)}
+        />
+        <button onClick={joinRoom}>Join Room</button> */}
 
-      <h1>Message:</h1>
-      {messageReceived}
+        <input
+          placeholder="message"
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button onClick={sendMessage}>Send Message</button>
+
+        {/* <h1>Message:</h1>
+        {messageReceived} */}
+      </div>
     </div>
   );
 }

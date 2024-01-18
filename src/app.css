@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  width: 75vw;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+.messageBody {
+  /* width: 80vh;
+  background-color: white; */
+}
+.inputBody {
+  position: absolute;
+  left: 2em;
+  bottom: 1em;
+}
+button {
+  outline: none;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 4px;
+  padding: 9px 12px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+button:hover {
+  background-color: transparent;
+  border: 1px solid blue;
+  color: blue;
+}
