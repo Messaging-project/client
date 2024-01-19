@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/login/Login.jsx";
+import App from "./pages/landing/App.jsx";
 import "./index.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact={true} element={<App />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/message/:id" exact={true} element={<App />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
