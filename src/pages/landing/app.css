@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  width: 75vw;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+button {
+  outline: none;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 4px;
+  padding: 9px 12px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+button:hover {
+  background-color: transparent;
+  border: 1px solid blue;
+  color: blue;
+}
+
+.sentMessage {
+  background-color: #dff9fb;
+  color: #00796b;
+  text-align: right;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 8px;
+}
+
+.receivedMessage {
+  background-color: #e0e0e0;
+  color: #424242;
+  text-align: left;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 8px;
+}
