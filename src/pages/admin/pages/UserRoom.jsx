@@ -3,20 +3,20 @@ import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 
 export default function UserRoom() {
-  const socket = io.connect("http://localhost:3001");
   const { id } = useParams();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  socket.emit("admin_join_room", {
-    admin: "admin@gmail.com",
-    clientEmail: id,
-  });
+  let socket;
 
   useEffect(() => {
-    const socket = io.connect("ws://localhost:3001", {
+    socket = io.connect("ws://localhost:3001", {
       reconnection: true,
       reconnectionAttempts: 100, // Adjust the number of attempts as needed
+    });
+    socket.emit("admin_join_room", {
+      admin: "admin@gmail.com",
+      clientEmail: id,
     });
     socket.on("received_message", (data) => {
       setMessages(data);
@@ -29,7 +29,7 @@ export default function UserRoom() {
     return () => {
       socket.disconnect();
     };
-  }, [socket]);
+  }, [messages]);
 
   const replyMessage = () => {
     socket.emit("admin_send_message", { message, email: id });

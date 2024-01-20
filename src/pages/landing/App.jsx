@@ -4,41 +4,32 @@ import { io } from "socket.io-client";
 import "./app.css";
 
 function App() {
-  const socket = io.connect("ws://localhost:3001", {
-    reconnection: true,
-    reconnectionAttempts: 100, // Adjust the number of attempts as needed
-  });
-
-
-
   const { id } = useParams();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  socket.emit("join_room", id);
-
-  const sendMessage = () => {
-    socket.emit("send_message", { message, email: id });
-    setMessage("");
-  };
-
+  let socket;
   useEffect(() => {
-    const newSocket = io.connect("ws://localhost:3001", {
+    socket = io.connect("ws://localhost:3001", {
       reconnection: true,
       reconnectionAttempts: 100, // Adjust the number of attempts as needed
     });
-    newSocket.on("received_message_client", (data) => {
+    socket.emit("join_room", id);
+    socket.on("received_message_client", (data) => {
       setMessages(data);
     });
-    newSocket.on("user_found", (data) => {
+    socket.on("user_found", (data) => {
       setMessages(data);
     });
 
     return () => {
-      newSocket.disconnect();
+      socket.disconnect();
     };
-    
   }, [messages]);
+  const sendMessage = () => {
+    socket.emit("send_message", { message, email: id });
+    setMessage("");
+  };
 
   return (
     <div className="container">
