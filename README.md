@@ -11,7 +11,7 @@ This is a fullstack project made by React js, socket.io-client and Node js.
 
 To be able to use it, you will need to clone it into your machine using the following command.
 
-    git clone git@github.com:Iank-code/Blog-Media.git
+    git clone git@github.com:Messaging-project/client.git
     cd client
     npm install
     npm run dev

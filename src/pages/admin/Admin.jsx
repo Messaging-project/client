@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 import "./admin.css";
 
 export default function Admin() {
@@ -8,7 +9,6 @@ export default function Admin() {
 
   const adminLogin = () => {
     if (admin) {
-      socket.emit("login", admin);
       navigate("/admin/users");
     }
   };
@@ -16,13 +16,13 @@ export default function Admin() {
   return (
     <div className="login-container">
       <div className="form-input">
-
-      <input
-        placeholder="Admin Login...."
-        onChange={(e) => setAdmin(e.target.value)}
-      />
-      <button onClick={adminLogin}>Admin Login</button>
+        <input
+          placeholder="Admin Login...."
+          onChange={(e) => setAdmin(e.target.value)}
+        />
+        <button onClick={adminLogin}>Admin Login</button>
       </div>
+      <Link to="/">Login as User</Link>
     </div>
   );
 }
