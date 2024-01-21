@@ -35,14 +35,37 @@ function App() {
     <div className="user-room-container">
       <h2>Admin</h2>
       <div className="message-body">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={msg.sender === id ? "sentMessage" : "receivedMessage"}
-          >
-            {msg.content}
-          </div>
-        ))}
+        {messages.map((msg, index) => {
+          return (
+            <div
+              key={index}
+              className={msg.sender === id ? "sentMessage" : "receivedMessage"}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                {msg.sender === "admin@gmail.com" && (
+                  <span style={{ fontSize: "13px" }}>From: Admin</span>
+                )}
+                <span>{msg.content}</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {msg.replies.map((reply, index) => {
+                  return (
+                    <span key={index} className="receivedMessage">
+                      {reply}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <div className="user-room-reply">
