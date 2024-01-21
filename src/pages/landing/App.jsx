@@ -32,8 +32,9 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="messageBody">
+    <div className="user-room-container">
+      <h2>Admin</h2>
+      <div className="message-body">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -44,7 +45,7 @@ function App() {
         ))}
       </div>
 
-      <div className="inputBody">
+      <div className="user-room-reply">
         <input
           placeholder="Message"
           value={message}

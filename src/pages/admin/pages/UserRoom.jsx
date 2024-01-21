@@ -39,20 +39,22 @@ export default function UserRoom() {
   return (
     <div className="user-room-container">
       <h2>{id}</h2>
-      {messages.map((msg, index) => {
-        return (
-          <div
-            key={index}
-            className={
-              msg.sender === "admin@gmail.com"
-                ? "sentMessage"
-                : "receivedMessage"
-            }
-          >
-            {msg.content}
-          </div>
-        );
-      })}
+      <div className="message-body">
+        {messages.map((msg, index) => {
+          return (
+            <div
+              key={index}
+              className={
+                msg.sender === "admin@gmail.com"
+                  ? "sentMessage"
+                  : "receivedMessage"
+              }
+            >
+              {msg.content}
+            </div>
+          );
+        })}
+      </div>
 
       <div className="user-room-reply">
         <input
