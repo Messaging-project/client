@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     socket = io.connect("ws://localhost:3001", {
       reconnection: true,
-      reconnectionAttempts: 100, // Adjust the number of attempts as needed
+      reconnectionAttempts: 100,
     });
     socket.emit("join_room", id);
     socket.on("received_message_client", (data) => {
