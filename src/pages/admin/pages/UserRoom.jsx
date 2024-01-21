@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
+import "./../admin.css";
 
 export default function UserRoom() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export default function UserRoom() {
   useEffect(() => {
     socket = io.connect("ws://localhost:3001", {
       reconnection: true,
-      reconnectionAttempts: 100, // Adjust the number of attempts as needed
+      reconnectionAttempts: 100,
     });
     socket.emit("admin_join_room", {
       admin: "admin@gmail.com",
@@ -36,8 +37,8 @@ export default function UserRoom() {
     setMessage("");
   };
   return (
-    <div>
-      <h2>Client: {id}</h2>
+    <div className="user-room-container">
+      <h2>{id}</h2>
       {messages.map((msg, index) => {
         return (
           <div
@@ -53,12 +54,14 @@ export default function UserRoom() {
         );
       })}
 
-      <input
-        placeholder="Message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      />
-      <button onClick={replyMessage}>Reply</button>
+      <div className="user-room-reply">
+        <input
+          placeholder="Message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <button onClick={replyMessage}>Reply</button>
+      </div>
     </div>
   );
 }

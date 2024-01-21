@@ -1,9 +1,23 @@
-# React + Vite
+# MESSAGING APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a fullstack project made by React js, socket.io-client and Node js.
 
-Currently, two official plugins are available:
+## Dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# client
+- Socket.io-client
+- React-router-dom
+
+## How to run
+
+To be able to use it, you will need to clone it into your machine using the following command.
+
+    git clone git@github.com:Iank-code/Blog-Media.git
+    cd client
+    npm install
+    npm run dev
+
+This will also start the server which will listen on port 5173
+
+```
+http://localhost:5173/
+```
