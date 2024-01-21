@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 
 export default function Login() {
@@ -21,6 +21,7 @@ export default function Login() {
         />
         <button onClick={joinRoom}>Login</button>
       </div>
+      <Link to="/admin">Login as Admin</Link>
     </div>
   );
 }

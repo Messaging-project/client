@@ -45,6 +45,7 @@ export default function UserRoom() {
         messageId: messageId,
         repliedMessage: message,
       });
+      setIsOpened(false);
     } else {
       socket.emit("admin_send_message", { message, email: id });
     }
