@@ -1,0 +1,79 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+  height: 100vh;
+}
+.login-container .form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 400px;
+  margin-left: 10em;
+  gap: 3px;
+}
+.login-container .form-input input {
+  width: 300px;
+}
+
+.user-room-container .user-room-reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 999 !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.admin-users {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 1em;
+}
+.admin-users a {
+  text-decoration: none;
+  color: black;
+}
+.admin-users a:hover {
+  color: blue;
+}
+
+.message-body {
+  height: 40vw;
+}
+
+@media screen and (max-width: 400px) {
+  .message-body {
+    height: 155vw;
+  }
+  /* Styles for admin login */
+  .login-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw;
+  }
+  .login-container .form-input input {
+    width: 200px;
+  }
+
+  /* Styles for user rooms */
+  .user-room-container h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    z-index: 999;
+    background-color: white;
+  }
+  .user-room-container .user-room-reply {
+    display: flex;
+    overflow-y: hidden !important;
+    justify-content: center;
+    width: 100%;
+    bottom: 3.4em;
+  }
+}

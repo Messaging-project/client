@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     socket = io.connect("ws://localhost:3001", {
       reconnection: true,
-      reconnectionAttempts: 100, // Adjust the number of attempts as needed
+      reconnectionAttempts: 100,
     });
     socket.emit("join_room", id);
     socket.on("received_message_client", (data) => {
@@ -32,19 +32,43 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <div className="messageBody">
-        {messages.map((msg, index) => (
-          <div
-            key={index}
-            className={msg.sender === id ? "sentMessage" : "receivedMessage"}
-          >
-            {msg.content}
-          </div>
-        ))}
+    <div className="user-room-container">
+      <h2>Admin</h2>
+      <div className="message-body">
+        {messages.map((msg, index) => {
+          return (
+            <div
+              key={index}
+              className={msg.sender === id ? "sentMessage" : "receivedMessage"}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                {msg.sender === "admin@gmail.com" && (
+                  <span style={{ fontSize: "13px" }}>From: Admin</span>
+                )}
+                <span>{msg.content}</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {msg.replies.map((reply, index) => {
+                  return (
+                    <span key={index} className="receivedMessage">
+                      {reply}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
-      <div className="inputBody">
+      <div className="user-room-reply">
         <input
           placeholder="Message"
           value={message}

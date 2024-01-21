@@ -1,10 +1,33 @@
-/* div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: gray;
-} 
-input{
-    width: 400px;
-} */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.login-container .form-input {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  width: 400px;
+  margin-left: 10em;
+  gap: 3px;
+}
+.login-container .form-input input {
+  width: 300px;
+}
+
+@media screen and (max-width: 400px) {
+  /* Styles for admin login */
+  .login-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100vw;
+  }
+  .login-container .form-input input {
+    width: 200px;
+  }
+}

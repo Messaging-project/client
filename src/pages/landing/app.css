@@ -1,7 +1,3 @@
-.container {
-  display: flex;
-  flex-direction: column;
-}
 input {
   width: 75vw;
   outline: none;
@@ -20,7 +16,7 @@ button {
   margin-left: 10px;
 }
 button:hover {
-  background-color: transparent;
+  background-color: white;
   border: 1px solid blue;
   color: blue;
 }
@@ -41,4 +37,37 @@ button:hover {
   padding: 8px;
   margin: 4px;
   border-radius: 8px;
+}
+.message-body {
+  height: 40vw;
+}
+.user-room-container .user-room-reply {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 999 !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  .message-body {
+    height: 155vw;
+  }
+  .user-room-container h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    z-index: 999;
+    background-color: white;
+  }
+  .user-room-container .user-room-reply {
+    display: flex;
+    overflow-y: hidden !important;
+    justify-content: center;
+    width: 100%;
+    bottom: 3.4em;
+  }
 }
